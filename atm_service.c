@@ -37,10 +37,12 @@ int main() {
             case 2:
                 printf("Enter the amount to withdraw: ");
                 scanf("%d", &withdraw);
-                if (withdraw > 500) {
-                    printf("You can't withdraw below 500TK");
-                } else if (withdraw > userAmount || userAmount == 500) {
+                if (withdraw < 500) {
+                    printf("You can't withdraw below 500TK\n\n\n");
+                } else if (withdraw > userAmount) {
                     printf("Insufficient balance\n\n\n");
+                }else if((userAmount - withdraw <= 500)){
+                    printf("Your account must have minimum 500TK\n\n\n");    
                 } else {
                     userAmount = userAmount - withdraw;
                     printf("Please collect your cash\n");
